@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API | DD Project</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fc8f51, #8f54f9);
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #e7e8ec;
+    }
+
+    .cover {
+      width: 45%;
+      margin-top: 50px;
+      border-radius: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cover img {
+      max-height: 80%;
+      width: auto;
+      display: block;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    .cover {
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .cover:hover {
+      filter: brightness(1.2);
+    }
+
+    .container {
+      transition: color 0.3s ease-in-out;
+    }
+
+    .cover:hover~.container {
+      color: #1b1b1b;
+    }
+
+    .navbar-logo {
+      width: 60px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .navbar a:hover {
+      color: #f39c12;
+    }
+
+    .navbar {
+      background-color: #333;
+      width: 100%;
+      padding: 10px 0;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="navbar">
+    <a href="index.html"><img class="navbar-logo" src="x.png"> Home | Main</a>
+    <a href="about.html"><img class="navbar-logo"> More About The Issue!</a>
+    <a href="stats.html">Recent Statistics!</a>
+    <a href="api.html">Interact: Speed Limits!</a>
+    <a href="tips.html">Read: DOT Solutions</a>
+  </div>
+
+  <div class="cover">
+    <img src="api.png" alt="Cover Image">
+  </div>
+  <div class="container">
+    <h1>Can you guess the speed limit?</h1>
+    <button class="custom-button" id="speedLimitBtn">Guess | Random City</button>
+    <div>
+    </div>
+    <h2 id="city">Chosen City: </h2>
+    <button class="custom-button" id="revealLimitBtn">Reveal | Speed Lim.</button>
+    <h2 id="lim">Answer: </h2>
+    <a class="custom-button" href="index.html">Main Page</a>
+
+  </div>
+  </div>
+
+  <script>
+    let locationArr = [
+      {city: "New York", lat: 40.7128, lon: -74.006},
+      {city: "London", lat: 51.5074, lon: -0.1278},
+      {city: "Sydney", lat: -33.8688, lon: 151.2093},
+      {city: "Tokyo", lat: 35.6895, lon: 139.6917},
+      {city: "Paris", lat: 48.8566, lon: 2.3522},
+      {city: "Berlin", lat: 52.5200, lon: 13.4050}
+    ];
+
+    document.getElementById("speedLimitBtn").addEventListener("click", handleClick1);
+    document.getElementById("revealLimitBtn").addEventListener("click", handleClick2);
+
+    function handleClick1() {
+      let randomNum = Math.floor(Math.random() * locationArr.length);
+      let randomCity = locationArr[randomNum].city;
+      document.getElementById("city").textContent = "Chosen City: " + randomCity;
+    }
+
+    function handleClick2() {
+      let randomNum = Math.floor(Math.random() * locationArr.length);
+      let LATITUDE = locationArr[randomNum].lat;
+      let LONGITUDE = locationArr[randomNum].lon;
+      const RADIUS = 500;
+
+      const query = `[out:json]; way(around:${RADIUS},${LATITUDE},${LONGITUDE})["highway"];out tags;`;
+      fetch(`https://overpass-api.de/api/interpreter?data=${encodeURIComponent(query)}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.elements && data.elements.length > 0) {
+            const speedLimit = data.elements[0].tags.maxspeed;
+            if (speedLimit == undefined) {
+              document.getElementById("lim").textContent = "Answer: 40 MPH"
+            } else {
+              console.log()
+              document.getElementById("lim").textContent = "Answer: " + String(speedLimit).slice(0, 2) + " MPH";
+            }
+
+          } else {
+            document.getElementById("lim").textContent = "No speed limit data found for this location.";
+          }
+        })
+        .catch(error => {
+          console.error("Error fetching data:", error);
+        });
+    }
+  </script>
+</body>
+
+</html>

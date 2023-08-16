@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STATS | DD Project</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fc8f51, #8f54f9);
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #e7e8ec;
+    }
+
+    .cover {
+      width: 45%;
+      margin-top: 50px;
+      border-radius: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cover img {
+      max-height: 80%;
+      width: auto;
+      display: block;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    .cover {
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .cover:hover {
+      filter: brightness(1.2);
+    }
+
+
+    .container {
+      transition: color 0.3s ease-in-out;
+    }
+
+    .cover:hover~.container {
+      color: #1b1b1b;
+    }
+
+    .navbar-logo {
+      width: 60px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .navbar a:hover {
+      color: #f39c12;
+    }
+
+    .navbar {
+      background-color: #333;
+      width: 100%;
+      padding: 10px 0;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="navbar">
+            <a href="index.html"><img class="navbar-logo" src="x.png"> Home | Main</a>
+    <a href="about.html"><img class="navbar-logo"> More About The Issue!</a>
+    <a href="stats.html">Recent Statistics!</a>
+    <a href="api.html">Interact: Speed Limits!</a>
+    <a href="tips.html">Read: DOT Solutions</a>
+  </div>
+
+  <div class="cover">
+    <img src="stats.png" alt="Cover Image">
+  </div>
+
+  <div class="container">
+    <h1>Statistics | We've been making progress!!</h1>
+    <div class="facts">
+      <a href="https://www.nhtsa.gov/press-releases/nhtsa-traffic-fatalities-estimates-first-quarter-2023" id="fact1"
+        class="fact-bubble">
+        <p>After a spike in the pandemic, traffic deaths have been on a consistent decline for the past year</p>
+      </a>
+      <a href="https://injuryfacts.nsc.org/motor-vehicle/overview/preliminary-monthly-estimates/" id="fact2"
+        class="fact-bubble">
+        <p>The mileage death rate per 100M vehicle miles driven for May 23' is 1.36, compared to 1.43 in May 22'</p>
+      </a>
+      <a href="https://www.forbes.com/advisor/legal/car-accident-statistics/" id="fact3" class="fact-bubble">
+        <p>Even so, a total of 35% of all fatal motor vehicle accidents occurred due to impaired driving</p>
+      </a>
+      <a href="https://www.usatoday.com/money/blueprint/auto-insurance/fatal-car-crash-statistics/" id="fact4"
+        class="fact-bubble">
+        <p>And car crashes are the leading cause of death in the United States for people ages 1-54</p>
+      </a>
+      <a href="https://www.ddlawtampa.com/resources/car-accident-statistics-you-need-to-know-in-2021/" id="fact5"
+        class="fact-bubble">
+        <p>Plus, if you talk on the phone while driving, you increase the chances of getting into a car accident by 400%
+        </p>
+      </a>
+      <a class="custom-button" href="index.html">Main Page</a>
+    </div>
+     <script src="script.js"></script>
+</body>
+
+</html>

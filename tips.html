@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TIPS | DD Project</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(135deg, #fc8f51, #8f54f9);
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #e7e8ec;
+    }
+
+    .cover {
+      width: 45%;
+      margin-top: 50px;
+      border-radius: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cover img {
+      max-height: 80%;
+      width: auto;
+      display: block;
+    }
+
+    .container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    .bubble {
+      display: inline-block;
+      padding: 20px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+    }
+
+    .bubble:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+    }
+
+    .bubble h1,
+    .bubble p {
+      margin: 0;
+    }
+
+    .cover {
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .cover:hover {
+      filter: brightness(1.2);
+    }
+
+    .container {
+      transition: color 0.3s ease-in-out;
+    }
+
+    .cover:hover~.container {
+      color: #1b1b1b;
+    }
+
+    .navbar-logo {
+      width: 60px;
+      height: auto;
+      margin-right: 10px;
+    }
+
+    .navbar a:hover {
+      color: #f39c12;
+    }
+
+    .navbar {
+      background-color: #333;
+      width: 100%;
+      padding: 10px 0;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 18px;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="navbar">
+         <a href="index.html"><img class="navbar-logo" src="x.png"> Home | Main</a>
+    <a href="about.html"><img class="navbar-logo"> More About The Issue!</a>
+    <a href="stats.html">Recent Statistics!</a>
+    <a href="api.html">Interact: Speed Limits!</a>
+    <a href="tips.html">Read: DOT Solutions</a>
+  </div>
+  <a class="custom-button"
+    href="https://www.transportation.gov/sites/dot.gov/files/2022-04/US_DOT_FY2022-26_Strategic_Plan.pdf">DOT Plans |
+    Link</a>
+
+  <div class="cover">
+    <img src="tips.png" alt="Cover Image">
+  </div>
+
+  <div class="container">
+
+    <h1>Safety Tips
+    </h1>
+    <p>Heed to signs and warnings on the road, avoid risky behaviors (NEVER drive while intoxicated), always choose
+      someone responsible to drive you around (passenger) and stay alert, avoid distractions!
+    </p>
+    <div class="bubble">
+      <h1>What will DOT's initiative do?
+      </h1>
+      <p>Made for designing roadways to separate
+        civilians from divers wherever applicable, lowering speed limits to calm traffic and prioritizing lower
+        speeds where areas merge; data-driven approaches with transparency: increasing pedestrian islands and
+        implementing solutions system-wide, especially directing
+        attention on vulnerable populations with a disproportionate rate of accidents
+      </p>
+    </div>
+  </div>
+  <a class="custom-button" href="index.html">Main Page</a>
+
+</body>
+
+</html>
